@@ -1,32 +1,49 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <nav
+        class="flex items-center justify-between flex-wrap bg-yellow-500 p-4"
+      >
+        <div class="flex items-center flex-shrink-0 text-gray-800 w-full">
+          <router-link to="/" class="mr-2">
+            <img src="./assets/images/logo_small.png" class="w-6" />
+          </router-link>
+          <div class="flex justify-start">
+            <div class="hover:bg-yellow-400 px-2 py-1 rounded">
+              <router-link
+                to="/admin-station"
+                class="block inline-block lg:mt-0 text-gray-800 text-sm"
+              >
+                역 관리
+              </router-link>
+            </div>
+            <div class="hover:bg-yellow-400 px-2 py-1 rounded">
+              <router-link
+                to="/admin-line"
+                class="block inline-block lg:mt-0 text-gray-800 text-sm"
+              >
+                노선 관리
+              </router-link>
+            </div>
+            <div class="hover:bg-yellow-400 px-2 py-1 rounded">
+              <router-link
+                to="/admin-edge"
+                class="block inline-block lg:mt-0 text-gray-800 text-sm"
+              >
+                구간 관리
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import "./assets/css/admin-app.css";
+@import "./assets/css/admin-edge.css";
+@import "./assets/css/admin-line.css";
+@import "./assets/css/admin-station.css";
 </style>
