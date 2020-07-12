@@ -1,5 +1,5 @@
 <template>
-  <body class="bg-gray-200 h-screen">
+  <div class="bg-gray-200 h-screen">
     <div class="flex justify-center items-center app-container">
       <div class="text-center">
         <img src="../assets/images/main_logo.png" class="main-logo mx-auto" />
@@ -20,8 +20,7 @@
         </ul>
       </div>
     </div>
-    <script type="module" src="/js/AdminApp.js"></script>
-  </body>
+  </div>
 </template>
 
 <script>
