@@ -11,10 +11,13 @@
               type="text"
               autocomplete="off"
               placeholder="역 이름을 추가해주세요."
+              v-model="inputText"
+              @keyup.enter.prevent="addStation"
             />
             <button
               id="station-add-btn"
               class="inline-block text-sm bg-yellow-500 hover:bg-yellow-400 hover:text-gray-700 text-gray-800 font-bold py-2 px-4 rounded"
+              @click.prevent="addStation"
             >
               추가
             </button>
@@ -29,9 +32,31 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AdminStation",
+  data: function () {
+    return {
+      inputText: "",
+    };
+  },
+  methods: {
+    showStations() {
+      axios
+        .get("http://localhost:8080/stations")
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error))
+        .then();
+    },
+    addStation() {
+      axios
+        .post("http://localhost:8080/stations", { name: this.inputText })
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error))
+        .then();
+      this.inputText = "";
+    },
+  },
 };
 </script>
-
-<style scoped></style>
